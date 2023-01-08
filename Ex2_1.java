@@ -11,20 +11,24 @@ import java.util.concurrent.Future;
 
 public class Ex2_1{
 
-    public static String[] createTextFiles(int n, int seed, int bound){
-        int numberOfLines;
-        String str = "eyal and ori";
-        String[] filesName = new String[n];
-        String file;
+public static String[] createTextFiles(int n, int seed, int bound){
+    int numberOfLines;
+    String str = "eyal and ori";
+    String[] filesName = new String[n];
+    String file;
 
-        for (int i = 1; i <= n; i++) {
-            numberOfLines = random(seed,bound);
-            file = "file_" + i + ".txt";
-            writeOnFile(file, str, numberOfLines);
-            filesName[i-1] = file;
-        }
-        return filesName;
+    // Create 'n' text files
+    for (int i = 1; i <= n; i++) {
+        // Generate a random number of lines for the file
+        numberOfLines = random(seed,bound);
+        file = "file_" + i + ".txt";
+        // Write the lines to the file
+        writeOnFile(file, str, numberOfLines);
+        // Add the file name to the array
+        filesName[i-1] = file;
     }
+    return filesName;
+}
 
     public static void writeOnFile(String file,String str, int row){
         try{
@@ -65,27 +69,28 @@ public class Ex2_1{
     }
 
     public int getNumOfLinesThreads(String[] fileNames){
-        Queue<MyThread> threads = new LinkedList<>();
+        Queue<MyThread> threads = new LinkedList<>(); // a queue to store the threads
         MyThread thread;
-        int count = 0;
+        int count = 0; // variable to store the total number of lines
         for(int i = 0; i < fileNames.length; i++){
-            thread = new MyThread(fileNames[i]);
-            thread.start();
-            threads.add(thread);
+            thread = new MyThread(fileNames[i]); // create a new thread for the file
+            thread.start(); // start the thread
+            threads.add(thread); // add the thread to the queue
         }
         for(int i = 0; i < fileNames.length; i++){
-            thread = threads.poll();
+            thread = threads.poll(); // get the next thread from the queue
             try{
-                thread.join();
-                count += thread.lineCount;
-            }catch(Exception e){}
+                thread.join(); // wait for the thread to finish
+                count += thread.lineCount; // add the number of lines from the thread to the total count
+            }catch(InterruptedException e){} 
         }
-        return count;
+        return count; 
     }
+
 
     public int getNumOfLinesThreadPool(String[] fileNames){
         // Create an ExecutorService with a fixed thread pool
-        ExecutorService threadPool = Executors.newFixedThreadPool(25);
+        ExecutorService threadPool = Executors.newFixedThreadPool(10);
     
         // Create an array of Future objects
         Future<Integer>[] futures = new Future[fileNames.length];
@@ -96,23 +101,22 @@ public class Ex2_1{
         }
     
         // Wait for all tasks to complete and retrieve the results
-        int result = 0;
+        int lines = 0;
         for (int i = 0; i < fileNames.length; i++) {
             try {
-                result += futures[i].get();
+                lines += futures[i].get();
             } catch (Exception  e) {
                 e.printStackTrace();
             }
         }
         // Shutdown the thread pool
         threadPool.shutdown();
-        return result;
+        return lines;
     }
     
-    public static int random(int seed, int bound){
+    public static int random(int seed, int bound){ // get random number between 1 to bound
         Random rand = new Random(seed);
         return rand.nextInt(bound) + 1;
     }
-
 
 }

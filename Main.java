@@ -4,8 +4,8 @@ public class Main {
 
         long startTime, endTime, elapsedTime;
 
-        String[] names = Ex2_1.createTextFiles(1000, 2, 10000);
-        System.out.println(Arrays.toString(names));
+        String[] names = Ex2_1.createTextFiles(500, 2, 10000);
+        // System.out.println(Arrays.toString(names));
         System.out.println();
         
         //first without thread
