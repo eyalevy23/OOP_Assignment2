@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/eyalevy/OOP_matala2/Ex2_2</OriginalElement>
+  <nodes>
+    <node x="-71.5" y="-20.0">TaskType</node>
+    <node x="-127.0" y="343.0">CustomExecutor</node>
+    <node x="-64.0" y="528.0">Tests</node>
+    <node x="-127.0" y="194.0">Task</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Task" target="TaskType" relationship="TO_ONE">
+      <point x="0.0" y="-52.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="Tests" target="CustomExecutor" relationship="CREATE">
+      <point x="0.0" y="-36.5" />
+      <point x="0.0" y="67.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7457098283931357" showDependencies="true" x="43.0" y="321.21652719665275" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -10,11 +10,11 @@ public class Task<V> implements Comparable<Task<V>> {
         this.type = type;
     }
 
-    public static <V> Task<V> create(Callable<V> operation) {
+    public static <V> Task<V> createTask(Callable<V> operation) {
         return new Task<>(operation, TaskType.OTHER);
     }
 
-    public static <V> Task<V> create(Callable<V> operation, TaskType type) {
+    public static <V> Task<V> createTask(Callable<V> operation, TaskType type) {
         return new Task<>(operation, type);
     }
 

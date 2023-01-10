@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/eyalevy/OOP_matala2/Ex2_1</OriginalElement>
+  <nodes>
+    <node x="7.75" y="481.0">Main</node>
+    <node x="195.0" y="-7.0">MyThread</node>
+    <node x="-178.0" y="-7.0">ThreadPoolNumOfLines</node>
+    <node x="-57.75" y="147.0">Ex2_1</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Ex2_1" target="ThreadPoolNumOfLines" relationship="CREATE">
+      <point x="-154.75" y="-142.0" />
+      <point x="0.0" y="52.0" />
+    </edge>
+    <edge source="Main" target="Ex2_1" relationship="CREATE">
+      <point x="0.0" y="-67.0" />
+      <point x="0.0" y="142.0" />
+    </edge>
+    <edge source="Ex2_1" target="MyThread" relationship="CREATE">
+      <point x="154.75" y="-142.0" />
+      <point x="0.0" y="52.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6483738317757011" showDependencies="true" x="-564.086369926199" y="18.156826568265615" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

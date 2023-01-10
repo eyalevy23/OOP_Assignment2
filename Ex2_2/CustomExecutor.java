@@ -27,14 +27,14 @@ public class CustomExecutor{
     }
 
     public <V> Future<V> submit(Callable<V> task) {
-        Task<V> t = Task.create(task);
+        Task<V> t = Task.createTask(task);
         updateMaxPriority(t.getPriority());
         Future<V> result =  executor.submit(t.operation);
        return result;
     }
 
     public <V> Future<V> submit(Callable<V> task, TaskType type) {
-        Task<V> t = Task.create(task,type);
+        Task<V> t = Task.createTask(task,type);
         updateMaxPriority(t.getPriority());
         Future<V> result =  executor.submit(t.operation);
        return result;
@@ -49,7 +49,7 @@ public class CustomExecutor{
         maxPriority = Math.max(maxPriority, priority);
     }
 
-    public void shutDown() {
+    public void gracefullyTerminate() {
         executor.shutdown();
     }
 
