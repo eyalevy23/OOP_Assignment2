@@ -41,7 +41,7 @@ public class CustomExecutor{
     }
   
 
-    public int getMaxPriority() {
+    public int getCurrentMax() {
         return maxPriority;
     }
 

@@ -1,10 +1,18 @@
+
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
+
+import CustomExecutor;
+import Task;
+import TaskType;
+
 import java.util.concurrent.*;
+
 public class Tests {
     public static final Logger logger = LoggerFactory.getLogger(Tests.class);
-    @Test
+    @org.junit.Test
+
     public void partialTest(){
         CustomExecutor customExecutor = new CustomExecutor();
         var task = Task.createTask(()->{
