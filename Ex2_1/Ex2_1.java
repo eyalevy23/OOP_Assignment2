@@ -90,7 +90,7 @@ public static String[] createTextFiles(int n, int seed, int bound){
 
     public int getNumOfLinesThreadPool(String[] fileNames){
         // Create an ExecutorService with a fixed thread pool
-        ExecutorService threadPool = Executors.newFixedThreadPool(10);
+        ExecutorService threadPool = Executors.newFixedThreadPool(fileNames.length);
     
         // Create an array of Future objects
         Future<Integer>[] futures = new Future[fileNames.length];

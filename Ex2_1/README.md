@@ -25,7 +25,7 @@ The program will output the names of the text files that were created, the total
 
 # times with threads and without:
 
-## why is threadpool faster then thread for shot task:
+## why is threadpool faster then thread for short task:
 1.Thread creation is a relatively expensive operation, as it involves allocating memory for the thread's stack and scheduling the thread with the operating system. By using a thread pool, you can reuse a fixed number of threads for multiple tasks, rather than creating a new thread for each task. This can reduce the overhead of thread creation and make your program more efficient.
 
 2.When a thread is created, it must be scheduled by the operating system to run on a CPU. This can take some time, especially on systems with many threads competing for CPU time. By using a thread pool, you can reduce the number of threads that need to be scheduled, which can improve the responsiveness of your program.
